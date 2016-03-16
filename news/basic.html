@@ -1,0 +1,71 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    	<!-- Bootstrap core CSS -->
+    	<link href="http://poledna.info/css/bootstrap.css" rel="stylesheet">
+
+		
+		<SCRIPT TYPE="text/javascript"> 
+
+			function popup(mylink, windowname) 
+				{ if (! window.focus)return true; var href; 
+					if (typeof(mylink) == 'string') href=mylink; 
+					else href=mylink.href; window.open(href, windowname, 'width=400,height=200,scrollbars=yes'); 
+					return false; 
+				}
+			function submit()
+				{
+				document.forms.submit();
+				}
+
+			function submitnoalert()
+				{
+			  	window.close();
+				}
+
+		</SCRIPT>
+	</head>
+
+
+	<body>
+		<div class="container-fluid">
+			<div clas='row'>
+				<div class='col-sm-6 col-sm-offset-3'>
+					<h3>Sign-Up</h1>
+					
+						<form method='POST' action=''>{% csrf_token %}
+
+						{{ form|crispy }} 
+
+						<br>
+
+						<input class='btn btn-success' type='submit' value='Submit' >
+						<input class='btn btn-success' type='reset' value='Close' onclick="submitnoalert()">
+						
+						</form>
+				</div>
+			</div>
+		</div>
+
+		<form>
+<div class="form-group">
+<label for="exampleInputEmail1">Email address</label>
+<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+</div>
+<div class="form-group">
+<label for="exampleInputPassword1">Password</label>
+<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+</div>
+
+<button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+	</body>
+
+</html>
